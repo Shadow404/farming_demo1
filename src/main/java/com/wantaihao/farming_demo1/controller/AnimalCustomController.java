@@ -20,4 +20,8 @@ public class AnimalCustomController {
         map.addAttribute("size",customs.size());
         return "provider.html";
     }
+    @RequestMapping("addProvider")
+    public String addProvider(){
+        return "addProvider.html";
+    }
 }
