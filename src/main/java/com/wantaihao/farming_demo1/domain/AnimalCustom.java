@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Data
@@ -22,8 +23,12 @@ public class AnimalCustom {
     private String CustomAddr;//地址
     @Column(nullable = false)
     private String CustomMail;//电子邮箱
-    @Column(nullable = false ,columnDefinition = "default 1")
+    @Column(nullable = false ,columnDefinition = "int default 1")
     private int CustomStatus;
+    @Column(columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP",nullable = false)
+    private Timestamp CustomCreate;
+    @Column(columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP",nullable = false)
+    private Timestamp CustomUpdate;
 
 
 }
