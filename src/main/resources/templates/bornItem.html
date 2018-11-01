@@ -1,0 +1,192 @@
+<!--_meta 作为公共模版分离出去-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="Bookmark" href="/favicon.ico" >
+<link rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5shiv.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="statics/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="statics/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+
+<link rel="stylesheet" type="text/css" href="statics/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="statics/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--/meta 作为公共模版分离出去-->
+
+<link href="lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-article-add" >
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">记录ID：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text"  readonly="readonly" th:value="${animalBornItem.getAnimalBornId()}" placeholder="" id="animalBornId" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">品种名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" readonly="readonly" th:value="${animalBornItem.getAnimalTypeName()}" placeholder="" id="" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">生产个数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" readonly="readonly" th:value="${animalBornItem.getAnimalBornCount()}" placeholder="" id="" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">生产次数：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" readonly="readonly"  th:value="${animalBornItem.getAnimalBornNum()}" placeholder="" id="" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">配种时间：</label>
+			<div class="formControls col-xs-3 col-sm-2">
+				<input type="text" readonly="readonly" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss' })" th:value="${#dates.format(animalBornItem.getAnimalSeedDate(),'yyyy年MM月dd日')}" class="input-text Wdate" style="width:180px;">
+
+			</div>
+			<label class="form-label col-xs-4 col-sm-2">上次配种时间：</label>
+			<div class="formControls col-xs-3 col-sm-2">
+				<input type="text" readonly="readonly" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss' })" th:value="${#dates.format(animalBornItem.getAnimalSeedDate(),'yyyy年MM月dd日') }" class="input-text Wdate" style="width:180px;">
+
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">（预计）生产时间：</label>
+			<div class="formControls col-xs-3 col-sm-2">
+				<input type="text" readonly="readonly" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss' })" th:value="${#dates.format(animalBornItem.getAnimalBornDate(),'yyyy年MM月dd日')}" class="input-text Wdate" style="width:180px;">
+
+			</div>
+			<label class="form-label col-xs-4 col-sm-2">上次生产时间：</label>
+			<div class="formControls col-xs-3 col-sm-2">
+				<input type="text" readonly="readonly" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss' })" th:value="${#dates.format(animalBornItem.getAnimalBornDate(),'yyyy年MM月dd日')}" class="input-text Wdate" style="width:180px;">
+
+			</div>
+		</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2">引进时间：</label>
+					<div class="formControls col-xs-3 col-sm-2">
+						<input type="text" readonly="readonly" onfocus="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss'})" th:value="${#dates.format(animalBornItem.getAnimalInDate(),'yyyy年MM月dd日')}"  class="input-text Wdate" style="width:180px;">
+					</div>
+				</div>
+
+
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">疫苗记录：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<textarea name="" cols="100" readonly="readonly" rows="400" class="textarea" th:text="${animalBornItem.getAnimalBornNote()}" placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">生产周期图：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div id="container" style="min-width:700px;height:400px"></div>			</div>
+		</div>
+		
+		<!-- <div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交审核</button>
+				<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div> -->
+	</form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="statics/h-ui/js/H-ui.min.js"></script> 
+<script type="text/javascript" src="statics/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
+<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.config.js"></script>
+<script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
+<script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="lib/hcharts/Highcharts/5.0.6/js/highcharts.js"></script>
+<script type="text/javascript" src="lib/hcharts/Highcharts/5.0.6/js/modules/exporting.js"></script>
+
+<script type="text/javascript" th:inline="none">
+$(function(){
+    var xtext = [];//X轴TEXT
+    var nums = [];//y轴数量
+	var animalBornId=$("#animalBornId").val();
+    $.ajax({
+        url:'/bornChart',//请求数据的地址
+        type : "post",
+        async : true,            //异步请求（同步请求将会锁住浏览器，用户其他操作必须等待请求完成才可以执行）
+        data : {id:animalBornId},
+        dataType : "json",        //返回数据形式为json
+        success:function(result){
+
+            var list=result.animalBornList;
+            for(var i=0;i<list.length;i++){
+				var born=list[i];
+
+                xtext.push(born.animalBornNum);
+                nums.push(born.animalBornCount);
+            }
+            chart.series[0].setData(nums);
+        },
+        error:function(e){
+        }
+    });
+
+    var chart = new Highcharts.Chart({
+        chart:{
+            renderTo:'container',//div的id值
+            type:'column' //显示类型
+        },
+        title:{
+            text:'历史生产周期图' //图表的标题
+        },
+        xAxis:{
+            categories:xtext
+        },
+        yAxis:{
+            title:{
+                text:'数量' //Y轴的名称
+            }
+
+        },
+        tooltip: {
+            valueSuffix: '只',
+
+        },
+
+        series:[{
+            name:"生产个数"
+        }],
+        credits: {//去掉版权
+            enabled: false
+        }
+    });
+
+
+});
+
+</script>
+</body>
+</html>
