@@ -20,7 +20,7 @@ public interface AnimalInventoryRepository extends JpaRepository<AnimalInventory
     List<String> findType();
     @Modifying
     @Transactional
-    @Query(nativeQuery = true,value = "INSERT INTO animal_inventory (animal_inventory.animal_type_name,animal_inventory.animal_born_count,animal_inventory.animal_last_count,animal_inventory.animal_in_date,animal_inventory.animal_out_date,animal_inventory.animal_from,animal_inventory.animal_born_id,animal_inventory.animal_born_count) values (?1,?2,?2,?3,?4,?5,'-1','-1')")
+    @Query(nativeQuery = true,value = "INSERT INTO animal_inventory (animal_inventory.animal_type_name,animal_inventory.animal_born_count,animal_inventory.animal_last_count,animal_inventory.animal_in_date,animal_inventory.animal_out_date,animal_inventory.animal_from,animal_inventory.animal_born_id,animal_inventory.animal_born_num) values (?1,?2,?2,?3,?4,?5,'-1','-1')")
     int addInventory(String animalTypeName, int animalBornCount, Date animalInDate, Date animalOutDate, String animalFrom);
     @Modifying
     @Transactional
