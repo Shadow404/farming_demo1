@@ -25,7 +25,7 @@
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 库存管理 <span class="c-gray en">&gt;</span> 出库管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a class="btn btn-primary radius" data-title=" " data-href="" onclick="innt_add('添加引进动物','/addInventory')" href="javascript:;void(0)"><i class="Hui-iconfont">&#xe600;</i> 添加入库动物</a></span> <span class="r">共有数据：<strong>[[${size}]]</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">  <span class="r">共有数据：<strong>[[${size}]]</strong> 条</span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
             <thead>
@@ -36,7 +36,7 @@
                 <th width="75">个数</th>
                 <th width="60">总价</th>
                 <th width="60">交易时间</th>
-                <th width="120">操作</th>
+                <th width="60">操作</th>
                 <th width="60">查看客户信息</th>
             </tr>
             </thead>
@@ -49,11 +49,6 @@
                 <td th:text="${deliver.getTotalPrice()}"></td>
                 <td th:text="${#dates.format(deliver.getTransDate(),'yyyy年MM月dd日')}"></td>
                 <td></td>
-                <!--<td class="td-status" th:if="${innt.getInfo()} eq '可出库'" ><span class="label label-success radius">可出库</span></td>
-                <td class="td-status" th:if="${innt.getInfo()} eq '培育中'"><span class="label label-secondary radius">培育中</span></td>
-                <td class="td-status" th:if="${innt.getInfo()} eq '未设置出库时间'"><span class="label label-defaunt radius disabled">未设置出库时间</span></td>
-                <td class="td-status" th:if="${innt.getInfo()} eq '没有库存'"><span class="label label-defaunt radius disabled">没有库存</span></td>
--->
 
                 <td><a href="javascript:" th:onclick="'javascript:layer.alert(\''+${deliver.getBuyerInfo()}+'\', {skin: \'layui-layer-molv\',closeBtn: 0})'" >查看详情</a></td>
             </tr>
