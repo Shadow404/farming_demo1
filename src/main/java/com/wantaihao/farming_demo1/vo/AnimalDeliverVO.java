@@ -2,11 +2,12 @@ package com.wantaihao.farming_demo1.vo;
 
 
 import com.wantaihao.farming_demo1.domain.AnimalDeliver;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
-
+@Data
 public class AnimalDeliverVO {
     private AnimalDeliver animalDeliver;
     private int AnimalDeliverId;
