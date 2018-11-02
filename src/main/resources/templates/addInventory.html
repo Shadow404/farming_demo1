@@ -79,7 +79,7 @@
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-                <button id="addBorn"  class="btn btn-secondary radius" ><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+                <button   class="btn btn-secondary radius" ><i class="Hui-iconfont">&#xe632;</i> 保存</button>
 
             </div>
         </div>
@@ -102,17 +102,5 @@
 <script type="text/javascript" src="lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
 <script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 
-<script type="text/javascript" th:inline="none">
-    $("#addBorn").click(
-        function (){
-            $.post({
-                url:"/doAddInventory",
-                contentType:"application/json;charset=utf-8",
-                method:"post",
-
-            });
-
-        });
-</script>
 </body>
 </html>
