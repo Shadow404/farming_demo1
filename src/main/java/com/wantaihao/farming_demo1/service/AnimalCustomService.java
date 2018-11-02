@@ -9,4 +9,6 @@ public interface AnimalCustomService {
     List<AnimalCustom> findAllProvider();
     /*添加供应商到数据库*/
     String addProvider(AnimalCustom animalCustom);
+    /*显示所有收购商信息*/
+    List<AnimalCustom> findAllBuyer();
 }

@@ -16,4 +16,5 @@ public interface AnimalTypeService {
     Map<String,Object> findById(int animalTypeId);
     String editType(AnimalType animalType);
     String changeTypeStatus(int animalTypeId,int animalTypeStatus);
+    List<String> findProviders();
 }

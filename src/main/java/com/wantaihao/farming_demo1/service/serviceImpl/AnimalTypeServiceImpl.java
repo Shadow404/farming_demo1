@@ -81,4 +81,11 @@ public class AnimalTypeServiceImpl implements AnimalTypeService {
         }
         return "操作失败！";
     }
+
+    @Override
+    public List<String> findProviders() {
+        List<String> list=animalTypeRepository.findProvider();
+        return list;
+
+    }
 }

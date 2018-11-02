@@ -16,7 +16,7 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
 
     @Override
     public List<AnimalCustom> findAllProvider() {
-        List<AnimalCustom> customs=animalCustomRepository.findByType();
+        List<AnimalCustom> customs=animalCustomRepository.findByType(1);
         return customs;
     }
 
@@ -34,5 +34,11 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
 
         }
         return message;
+    }
+
+    @Override
+    public List<AnimalCustom> findAllBuyer() {
+        List<AnimalCustom> customs=animalCustomRepository.findByType(2);
+        return customs;
     }
 }

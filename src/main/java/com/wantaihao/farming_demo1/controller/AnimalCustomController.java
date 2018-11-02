@@ -31,4 +31,21 @@ public class AnimalCustomController {
         String message=animalCustomService.addProvider(animalCustom);
         return message;
     }
+    @RequestMapping("buyer")
+    public String buyer(ModelMap map){
+        List<AnimalCustom> customs=animalCustomService.findAllBuyer();
+        map.addAttribute("buyers",customs);
+        map.addAttribute("size",customs.size());
+        return "buyer.html";
+    }
+    @RequestMapping("addBuyer")
+    public String addBuyer(){
+        return "addProvider.html";
+    }
+    @RequestMapping("doAddBuyer")
+    @ResponseBody
+    public String doAddBuyer(AnimalCustom animalCustom){
+        String message=animalCustomService.addProvider(animalCustom);
+        return message;
+    }
 }

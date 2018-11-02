@@ -21,7 +21,7 @@ public class AnimalType {
     @Column(nullable = false)
     private String AnimalTypeName;
     @Column(nullable = false)
-    private String AnimalTypeFrom;
+    private String animalTypeFrom;
     @Column(updatable = false,nullable = false,columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP")
     private Timestamp AnimalTypeCreate;
     @Column(nullable = false,columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ")

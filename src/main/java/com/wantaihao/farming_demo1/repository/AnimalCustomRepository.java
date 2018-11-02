@@ -11,8 +11,8 @@ import java.util.List;
 
 @Repository
 public interface AnimalCustomRepository extends JpaRepository<AnimalCustom,Integer> {
-    @Query(nativeQuery = true,value = "SELECT * FROM animal_custom WHERE custom_type=1")
-    List<AnimalCustom> findByType();
+    @Query(nativeQuery = true,value = "SELECT * FROM animal_custom WHERE custom_type=?1")
+    List<AnimalCustom> findByType(int customType);
     @Modifying
     @Transactional
     @Query(nativeQuery = true,value = "INSERT INTO animal_custom (animal_custom.custom_name,animal_custom.custom_phone,animal_custom.custom_addr,animal_custom.custom_mail,animal_custom.custom_type) values (?1,?2,?3,?4,'1')")

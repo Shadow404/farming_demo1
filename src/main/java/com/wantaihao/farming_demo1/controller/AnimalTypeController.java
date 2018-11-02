@@ -38,7 +38,9 @@ public class AnimalTypeController {
         return typeService.findAll(pageable).getContent();
     }
     @RequestMapping("/addType")
-    public String addType(){
+    public String addType(ModelMap map){
+        List<String> providerNames=typeService.findProviders();
+        map.addAttribute("providers",providerNames);
         return "addType.html";
     }
 
