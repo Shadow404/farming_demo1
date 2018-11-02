@@ -3,6 +3,7 @@ package com.wantaihao.farming_demo1.service;
 import com.wantaihao.farming_demo1.domain.AnimalCustom;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AnimalCustomService {
     /*显示所有供应商信息*/
@@ -13,4 +14,8 @@ public interface AnimalCustomService {
     List<AnimalCustom> findAllBuyer();
     /*添加供应商到数据库*/
     String addBuyer(AnimalCustom animalCustom);
+    /*删除客户*/
+    Map delCustom(Integer customId);
+    /*编辑客户信息*/
+    String editProvider(AnimalCustom animalCustom);
 }

@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class AnimalCustomController {
@@ -40,12 +42,29 @@ public class AnimalCustomController {
     }
     @RequestMapping("addBuyer")
     public String addBuyer(){
-        return "addProvider.html";
+        return "addBuyer.html";
     }
     @RequestMapping("doAddBuyer")
     @ResponseBody
     public String doAddBuyer(AnimalCustom animalCustom){
         String message=animalCustomService.addBuyer(animalCustom);
+        return message;
+    }
+    @RequestMapping("delCustom")
+    @ResponseBody
+    public Map<String,Object>delCustom(@RequestParam Integer customId){
+        Map map=animalCustomService.delCustom(customId);
+        return map;
+    }
+    @RequestMapping("editProvider")
+    public String editCustom(@RequestParam Integer customId,ModelMap map){
+        map.addAttribute("customId",customId);
+        return "editProvider.html";
+    }
+    @RequestMapping("doEditProvider")
+    @ResponseBody
+    public String doEditCustom(AnimalCustom animalCustom){
+        String message=animalCustomService.editProvider(animalCustom);
         return message;
     }
 }
