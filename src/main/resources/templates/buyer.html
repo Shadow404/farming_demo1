@@ -22,25 +22,25 @@
     <title>供应商管理</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 客户管理 <span class="c-gray en">&gt;</span> 供应商管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 客户管理 <span class="c-gray en">&gt;</span> 收购商管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
-    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a class="btn btn-primary radius" data-title=" " data-href="" onclick="provider_add('添加供应商','/addProvider')" href="javascript:;void(0)"><i class="Hui-iconfont">&#xe600;</i> 添加供应商</a></span> <span class="r">共有数据：<strong>[[${size}]]</strong> 条</span> </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a class="btn btn-primary radius" data-title=" " data-href="" onclick="buyer_add('添加收购商','/addBuyer')" href="javascript:;void(0)"><i class="Hui-iconfont">&#xe600;</i> 添加供应商</a></span> <span class="r">共有数据：<strong>[[${size}]]</strong> 条</span> </div>
     <div class="mt-20">
         <table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
             <thead>
             <tr class="text-c">
-                <th width="80">供应商名称</th>
-                <th width="80">供应商电话号码</th>
-                <th width="80">供应商电子邮件</th>
-                <th width="80">供应商地址</th>
-                <th width="75">供应商状态</th>
+                <th width="80">收购商名称</th>
+                <th width="80">收购商电话号码</th>
+                <th width="80">收购商电子邮件</th>
+                <th width="80">收购商地址</th>
+                <th width="75">收购商状态</th>
                 <th width="120">操作</th>
                 <th th:width="60">查看详情</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="text-c" th:each="custom ,  iterStat: ${customs}">
+            <tr class="text-c" th:each="custom ,  iterStat: ${buyers}">
                 <td class="text-l" th:text="${custom.getCustomName()}"></td>
                 <td th:text="${custom.getCustomPhone()}"></td>
                 <td th:text="${custom.getCustomMail()}"></td>
@@ -84,7 +84,7 @@
     });
 
     /!*供应商-添加*!/
-    function provider_add(title,url,w,h){
+    function buyer_add(title,url,w,h){
         layer.open({
             type: 2,
             title: title,

@@ -45,7 +45,7 @@ public class AnimalCustomController {
     @RequestMapping("doAddBuyer")
     @ResponseBody
     public String doAddBuyer(AnimalCustom animalCustom){
-        String message=animalCustomService.addProvider(animalCustom);
+        String message=animalCustomService.addBuyer(animalCustom);
         return message;
     }
 }

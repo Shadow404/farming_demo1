@@ -28,7 +28,7 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
         String customAddr=animalCustom.getCustomAddr();
         String customMail=animalCustom.getCustomMail();
 
-        int result=animalCustomRepository.add(customName,customTel,customAddr,customMail);
+        int result=animalCustomRepository.add(customName,customTel,customAddr,customMail,2);
         if(result>0){
             message="添加供应商成功！";
 
@@ -40,5 +40,21 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
     public List<AnimalCustom> findAllBuyer() {
         List<AnimalCustom> customs=animalCustomRepository.findByType(2);
         return customs;
+    }
+
+    @Override
+    public String addBuyer(AnimalCustom animalCustom) {
+        String message="添加收购商失败！";
+        String customName=animalCustom.getCustomName();
+        String customTel=animalCustom.getCustomPhone();
+        String customAddr=animalCustom.getCustomAddr();
+        String customMail=animalCustom.getCustomMail();
+
+        int result=animalCustomRepository.add(customName,customTel,customAddr,customMail,2);
+        if(result>0){
+            message="添加收购商成功！";
+
+        }
+        return message;
     }
 }

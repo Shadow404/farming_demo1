@@ -15,6 +15,6 @@ public interface AnimalCustomRepository extends JpaRepository<AnimalCustom,Integ
     List<AnimalCustom> findByType(int customType);
     @Modifying
     @Transactional
-    @Query(nativeQuery = true,value = "INSERT INTO animal_custom (animal_custom.custom_name,animal_custom.custom_phone,animal_custom.custom_addr,animal_custom.custom_mail,animal_custom.custom_type) values (?1,?2,?3,?4,'1')")
-    int add(String customName,String customTel,String customAddr,String customMail);
+    @Query(nativeQuery = true,value = "INSERT INTO animal_custom (animal_custom.custom_name,animal_custom.custom_phone,animal_custom.custom_addr,animal_custom.custom_mail,animal_custom.custom_type) values (?1,?2,?3,?4,?5)")
+    int add(String customName,String customTel,String customAddr,String customMail,int customType);
 }
