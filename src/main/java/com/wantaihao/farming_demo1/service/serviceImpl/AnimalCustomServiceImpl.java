@@ -19,4 +19,15 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
         List<AnimalCustom> customs=animalCustomRepository.findByType();
         return customs;
     }
+
+    @Override
+    public String addProvider(AnimalCustom animalCustom) {
+        String message="添加供应商失败！";
+        int result=animalCustomRepository.add(animalCustom);
+        if(result>0){
+            message="添加供应商成功！";
+
+        }
+        return message;
+    }
 }
