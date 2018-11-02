@@ -23,7 +23,12 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
     @Override
     public String addProvider(AnimalCustom animalCustom) {
         String message="添加供应商失败！";
-        int result=animalCustomRepository.add(animalCustom);
+        String customName=animalCustom.getCustomName();
+        String customTel=animalCustom.getCustomPhone();
+        String customAddr=animalCustom.getCustomAddr();
+        String customMail=animalCustom.getCustomMail();
+
+        int result=animalCustomRepository.add(customName,customTel,customAddr,customMail);
         if(result>0){
             message="添加供应商成功！";
 
