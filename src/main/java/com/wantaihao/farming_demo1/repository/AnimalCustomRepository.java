@@ -25,4 +25,6 @@ public interface AnimalCustomRepository extends JpaRepository<AnimalCustom,Integ
     @Modifying
     @Query(nativeQuery = true,value = "UPDATE animal_custom SET animal_custom.custom_name=?1,animal_custom.custom_phone=?2,animal_custom.custom_addr=?3,animal_custom.custom_mail=?4 WHERE custom_id=?5")
     int editCustom(String customName, String customTel, String customAddr, String customMail, Integer customId);
+    @Query(nativeQuery = true,value = "select * from animal_custom where custom_id=?1")
+    AnimalCustom findProvider(Integer customId);
 }

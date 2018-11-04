@@ -58,7 +58,8 @@ public class AnimalCustomController {
     }
     @RequestMapping("editProvider")
     public String editCustom(@RequestParam Integer customId,ModelMap map){
-        map.addAttribute("customId",customId);
+        AnimalCustom custom=animalCustomService.findProvider(customId);
+        map.addAttribute("custom",custom);
         return "editProvider.html";
     }
     @RequestMapping("doEditProvider")

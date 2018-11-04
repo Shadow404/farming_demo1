@@ -30,7 +30,7 @@ public interface AnimalTypeRepository extends JpaRepository<AnimalType,Integer> 
      @Modifying
      @Transactional
      @Query(value = "UPDATE animal_type SET animal_type_from=?2 , animal_type_name=?1 WHERE animal_type_id=?3",nativeQuery = true)
-     int editType(String aniamlTypeName,String animalTypeFrom,int animalTypeId);
+     int editType(String animalTypeName,String animalTypeFrom,int animalTypeId);
      @Modifying
      @Transactional
      @Query(value = "UPDATE animal_type SET animal_type_status=?2 WHERE animal_type_id=?1",nativeQuery = true)

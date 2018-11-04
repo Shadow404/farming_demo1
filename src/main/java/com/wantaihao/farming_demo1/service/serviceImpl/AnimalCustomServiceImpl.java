@@ -6,6 +6,7 @@ import com.wantaihao.farming_demo1.domain.AnimalType;
 import com.wantaihao.farming_demo1.repository.AnimalCustomRepository;
 import com.wantaihao.farming_demo1.repository.AnimalTypeRepository;
 import com.wantaihao.farming_demo1.service.AnimalCustomService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,7 @@ import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Slf4j
 @Service
 public class AnimalCustomServiceImpl implements AnimalCustomService {
     @Autowired
@@ -34,7 +35,7 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
         String customAddr=animalCustom.getCustomAddr();
         String customMail=animalCustom.getCustomMail();
 
-        int result=animalCustomRepository.add(customName,customTel,customAddr,customMail,2);
+        int result=animalCustomRepository.add(customName,customTel,customAddr,customMail,1);
         if(result>0){
             message="添加供应商成功！";
 
@@ -88,9 +89,16 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
         AnimalCustom origncustom=animalCustomRepository.getOne(customId);
         int result1=animalCustomRepository.editCustom(customName,customTel,customAddr,customMail,customId);
         int result2=animalTypeRepository.changeTypeFrom(customName,origncustom.getCustomName());
+        log.info("{} result1 {}",result1,result2);
         if(result1>0&&result2>0){
             message="修改成功！";
+
         }
         return message;
+    }
+
+    @Override
+    public AnimalCustom findProvider(Integer customId) {
+        return animalCustomRepository.findProvider(customId);
     }
 }

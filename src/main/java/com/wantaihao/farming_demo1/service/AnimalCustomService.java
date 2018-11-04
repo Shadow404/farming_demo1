@@ -18,4 +18,6 @@ public interface AnimalCustomService {
     Map delCustom(Integer customId);
     /*编辑客户信息*/
     String editProvider(AnimalCustom animalCustom);
+
+    AnimalCustom findProvider(Integer customId);
 }
