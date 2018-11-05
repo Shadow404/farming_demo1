@@ -17,7 +17,11 @@ public interface AnimalCustomService {
     /*删除客户*/
     Map delCustom(Integer customId);
     /*编辑客户信息*/
-    String editProvider(AnimalCustom animalCustom);
-
+    String editProvider(AnimalCustom animalCustom,String originName);
+    /*查找需要编辑的客户信息*/
     AnimalCustom findProvider(Integer customId);
+    /*查询收购商信息*/
+    AnimalCustom findBuyer(Integer customId);
+    /*修改收购商信息*/
+    String editBuyer(AnimalCustom animalCustom);
 }

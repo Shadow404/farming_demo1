@@ -79,18 +79,17 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
     }
     @Transactional(rollbackOn = Exception.class)
     @Override
-    public String editProvider(AnimalCustom animalCustom) {
+    public String editProvider(AnimalCustom animalCustom,String originName) {
         Integer customId=animalCustom.getCustomId();
         String customName=animalCustom.getCustomName();
         String customTel=animalCustom.getCustomPhone();
         String customAddr=animalCustom.getCustomAddr();
         String customMail=animalCustom.getCustomMail();
         String message="修改失败！";
-        AnimalCustom origncustom=animalCustomRepository.getOne(customId);
+        log.info("{} custom",customName);
         int result1=animalCustomRepository.editCustom(customName,customTel,customAddr,customMail,customId);
-        int result2=animalTypeRepository.changeTypeFrom(customName,origncustom.getCustomName());
-        log.info("{} result1 {}",result1,result2);
-        if(result1>0&&result2>0){
+        int result2=animalTypeRepository.changeTypeFrom(customName,originName);
+        if(result1>0){
             message="修改成功！";
 
         }
@@ -100,5 +99,25 @@ public class AnimalCustomServiceImpl implements AnimalCustomService {
     @Override
     public AnimalCustom findProvider(Integer customId) {
         return animalCustomRepository.findProvider(customId);
+    }
+
+    @Override
+    public AnimalCustom findBuyer(Integer customId) {
+        return animalCustomRepository.findBuyer(customId);
+    }
+
+    @Override
+    public String editBuyer(AnimalCustom animalCustom) {
+        Integer customId=animalCustom.getCustomId();
+        String customName=animalCustom.getCustomName();
+        String customTel=animalCustom.getCustomPhone();
+        String customAddr=animalCustom.getCustomAddr();
+        String customMail=animalCustom.getCustomMail();
+        String message="修改失败！";
+        int result=animalCustomRepository.editCustom(customName,customTel,customAddr,customMail,customId);
+        if(result>0){
+            message="修改成功！";
+        }
+        return message;
     }
 }

@@ -1,9 +1,12 @@
 package com.wantaihao.farming_demo1.service.serviceImpl;
 
+
 import com.wantaihao.farming_demo1.domain.AnimalDeliver;
 import com.wantaihao.farming_demo1.domain.AnimalInventory;
+import com.wantaihao.farming_demo1.repository.AnimalCustomRepository;
 import com.wantaihao.farming_demo1.repository.AnimalDeliverRepository;
 import com.wantaihao.farming_demo1.repository.AnimalInventoryRepository;
+import com.wantaihao.farming_demo1.repository.AnimalTypeRepository;
 import com.wantaihao.farming_demo1.service.AnimalInventoryService;
 import com.wantaihao.farming_demo1.vo.AnimalInventoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,8 @@ public class AnimalInventoryServiceImpl implements AnimalInventoryService {
     private AnimalInventoryRepository animalInventoryRepository;
     @Autowired
     private AnimalDeliverRepository animalDeliverRepository;
+    @Autowired
+    private AnimalTypeRepository animalTypeRepository;
     @Override
     @Transactional(rollbackOn = Exception.class)
     public List<AnimalInventoryVO> findAll() {
@@ -54,11 +59,11 @@ public class AnimalInventoryServiceImpl implements AnimalInventoryService {
         Date animalOutDate=animalInventory.getAnimalOutDate();
         Date animalInDate=animalInventory.getAnimalInDate();
         int animalBornCount=animalInventory.getAnimalBornCount();
-        String animalFrom=animalInventory.getAnimalFrom();
-        String message="插入失败！";
+        String message="添加失败！";
+        String animalFrom=animalTypeRepository.findProviderByTypeName(animalTypeName);
         int result=animalInventoryRepository.addInventory(animalTypeName,animalBornCount,animalInDate,animalOutDate,animalFrom);
         if(result>0){
-            message="插入成功！";
+            message="添加成功！";
         }
         return message;
     }
@@ -110,4 +115,6 @@ public class AnimalInventoryServiceImpl implements AnimalInventoryService {
         }
         return message;
     }
+
+
 }

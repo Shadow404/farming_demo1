@@ -39,6 +39,7 @@ public class AnimalInventoryController {
     @RequestMapping("addInventory")
     public String addInventory(ModelMap map){
         List<String> typeList=null;
+
         try {
             typeList=animalInventoryService.findType();
             map.addAttribute("typeList",typeList);

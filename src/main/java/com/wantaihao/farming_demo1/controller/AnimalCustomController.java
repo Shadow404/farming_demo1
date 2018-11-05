@@ -64,8 +64,20 @@ public class AnimalCustomController {
     }
     @RequestMapping("doEditProvider")
     @ResponseBody
-    public String doEditCustom(AnimalCustom animalCustom){
-        String message=animalCustomService.editProvider(animalCustom);
+    public String doEditCustom(AnimalCustom animalCustom,@RequestParam String originName){
+        String message=animalCustomService.editProvider(animalCustom,originName);
+        return message;
+    }
+    @RequestMapping("editBuyer")
+    public String editBuyer(@RequestParam Integer customId,ModelMap map){
+        AnimalCustom custom=animalCustomService.findBuyer(customId);
+        map.addAttribute("custom",custom);
+        return "editBuyer.html";
+    }
+    @RequestMapping("doEditBuyer")
+    @ResponseBody
+    public String doEditBuyer(AnimalCustom animalCustom){
+        String message=animalCustomService.editBuyer(animalCustom);
         return message;
     }
 }

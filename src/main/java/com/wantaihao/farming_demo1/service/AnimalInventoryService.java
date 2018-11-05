@@ -22,4 +22,6 @@ public interface AnimalInventoryService {
     public Map delInventory(int animalBornLogId);
 
     public String addDeliver(AnimalDeliver animalDeliver);
+
+
 }
