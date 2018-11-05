@@ -30,29 +30,29 @@
 <body>
 <div class="page-container">
 
-    <form action="/doEditProvider" method="post" class="form form-horizontal" >
+    <form action="/doEditBuyer" method="post" class="form form-horizontal" >
 
         <input type="text" hidden="hidden" name="CustomId" th:value="${custom.getCustomId()}">
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">供应商名称：</label>
+            <label class="form-label col-xs-4 col-sm-2">收购商名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text"  class="input-text" th:value="${custom.getCustomName()}"  name="CustomName" required="required" >
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">供应商电话号码：</label>
+            <label class="form-label col-xs-4 col-sm-2">收购商电话号码：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="tel"  required="required" class="input-text" id="phone" th:value="${custom.getCustomPhone()}"  name="CustomPhone">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">供应商地址：</label>
+            <label class="form-label col-xs-4 col-sm-2">收购商地址：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" required="required" class="input-text" th:value="${custom.getCustomAddr()}"  name="CustomAddr">
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-2">供应商邮箱：</label>
+            <label class="form-label col-xs-4 col-sm-2">收购商邮箱：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="email" id="email" required="required" th:value="${custom.getCustomMail()}"  class="input-text"  name="CustomMail">
             </div>
