@@ -24,7 +24,7 @@ public class AnimalWorker {
     private Date WorkerBirth;//生日
     @Column(nullable = false)
     private String WorkerAddr;//工作地址
-    @Column(nullable = false,scale = 1)
+    @Column(nullable = false,scale = 1,precision = 10)
     private BigDecimal WorkerWage;//工资
     @Column(nullable = false,columnDefinition = "int default 1")
     private int WorkerStatus;//状态 1 在职 2休假 -1离职
