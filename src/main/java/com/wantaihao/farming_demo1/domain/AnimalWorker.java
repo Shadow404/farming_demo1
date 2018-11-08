@@ -14,21 +14,21 @@ import java.util.Date;
 public class AnimalWorker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Integer WorkerId;
+    private Integer workerId;
     @Column(nullable = false)
-    private String WorkerName;//姓名
+    private String workerName;//姓名
     @Column(nullable = false)
-    private String WorkerTel;//电话号码
+    private String workerTel;//电话号码
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(nullable = false)
-    private Date WorkerBirth;//生日
+    private Date workerBirth;//生日
     @Column(nullable = false)
-    private String WorkerAddr;//工作地址
+    private String workerAddr;//工作地址
     @Column(nullable = false,scale = 1,precision = 10)
-    private BigDecimal WorkerWage;//工资
+    private BigDecimal workerWage;//工资
     @Column(nullable = false,columnDefinition = "int default 1")
-    private int WorkerStatus;//状态 1 在职 2休假 -1离职
+    private int workerStatus;//状态 1 在职 2休假 -1离职
     @Column
-    private String WorkerNote;//备注
+    private String workerNote;//备注
 
 }

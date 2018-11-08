@@ -16,7 +16,7 @@ import java.util.Map;
 @Repository
 public interface AnimalBornRepository extends JpaRepository<AnimalBorn,Integer> {
     @Query(value = "SELECT * FROM animal_born WHERE animal_born_id=?1 ",nativeQuery = true)
-    AnimalBorn findOne(int AnimalBornId);
+    AnimalBorn findOne(int animalBornId);
     @Modifying
     @Transactional
     @Query(nativeQuery = true,value = "INSERT INTO animal_born (animal_born.animal_type_name,animal_born.animal_born_count,animal_born.animal_seed_date,animal_born.animal_born_date,animal_born.animal_in_date)VALUES(?1,?2,?3,?4,?5) ")

@@ -12,23 +12,23 @@ import java.sql.Timestamp;
 public class AnimalCustom {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer CustomId;
+    private Integer customId;
     @Column(nullable = false)
-    private int CustomType;//客户类型
+    private int customType;//客户类型
     @Column(nullable = false)
-    private String CustomName;//客户名称
+    private String customName;//客户名称
     @Column(nullable = false)
-    private String CustomPhone;//电话号码
+    private String customPhone;//电话号码
     @Column(nullable = false)
-    private String CustomAddr;//地址
+    private String customAddr;//地址
     @Column(nullable = false)
-    private String CustomMail;//电子邮箱
+    private String customMail;//电子邮箱
     @Column(nullable = false ,columnDefinition = "int default 1")
-    private int CustomStatus;
+    private int customStatus;
     @Column(columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP",nullable = false)
-    private Timestamp CustomCreate;
+    private Timestamp customCreate;
     @Column(columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP  ON UPDATE CURRENT_TIMESTAMP",nullable = false)
-    private Timestamp CustomUpdate;
+    private Timestamp customUpdate;
 
 
 }

@@ -10,25 +10,25 @@ import java.util.Date;
 @Data
 public class AnimalDeliverVO {
     private AnimalDeliver animalDeliver;
-    private int AnimalDeliverId;
-    private String AnimalType;//类型
-    private BigDecimal UnitPrice;//单价
-    private BigDecimal AnimalNum;//个数
-    private int AnimalLogId;//库存号
-    private Date TransDate;
-    private String BuyerInfo;
+    private int animalDeliverId;
+    private String animalType;//类型
+    private BigDecimal unitPrice;//单价
+    private BigDecimal animalNum;//个数
+    private int animalLogId;//库存号
+    private Date transDate;
+    private String buyerInfo;
     public AnimalDeliverVO(AnimalDeliver animalDeliver) {
         this.animalDeliver = animalDeliver;
-        AnimalDeliverId = animalDeliver.getAnimalDeliverId();
-        AnimalType = animalDeliver.getAnimalType();
-        UnitPrice = animalDeliver.getUnitPrice();
-        AnimalNum = animalDeliver.getAnimalNum();
-        AnimalLogId = animalDeliver.getAnimalLogId();
-        TransDate = animalDeliver.getTransDate();
-        BuyerInfo = animalDeliver.getBuyerInfo();
+        animalDeliverId = animalDeliver.getAnimalDeliverId();
+        animalType = animalDeliver.getAnimalType();
+        unitPrice = animalDeliver.getUnitPrice();
+        animalNum = animalDeliver.getAnimalNum();
+        animalLogId = animalDeliver.getAnimalLogId();
+        transDate = animalDeliver.getTransDate();
+        buyerInfo = animalDeliver.getBuyerInfo();
     }
     public BigDecimal getTotalPrice(){
-        BigDecimal totalPrice=UnitPrice.multiply(AnimalNum);
+        BigDecimal totalPrice=unitPrice.multiply(animalNum);
         return totalPrice;
     }
 

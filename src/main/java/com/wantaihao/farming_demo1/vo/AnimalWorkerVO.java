@@ -7,31 +7,31 @@ import java.util.Date;
 
 @Data
 public class AnimalWorkerVO {
-    private Integer WorkerId;
-    private String WorkerName;//姓名
-    private String WorkerTel;//电话号码
-    private Date WorkerBirth;//生日
-    private String WorkerAddr;//工作地址
-    private BigDecimal WorkerWage;//工资
-    private int WorkerStatus;//状态 1 在职 2休假 -1离职
-    private String WorkerNote;//备注
+    private Integer workerId;
+    private String workerName;//姓名
+    private String workerTel;//电话号码
+    private Date workerBirth;//生日
+    private String workerAddr;//工作地址
+    private BigDecimal workerWage;//工资
+    private int workerStatus;//状态 1 在职 2休假 -1离职
+    private String workerNote;//备注
     private AnimalWorker animalWorker;
 
     public AnimalWorkerVO(AnimalWorker animalWorker) {
-        WorkerId = animalWorker.getWorkerId();
-        WorkerName = animalWorker.getWorkerName();
-        WorkerTel = animalWorker.getWorkerTel();
-        WorkerBirth = animalWorker.getWorkerBirth();
-        WorkerAddr = animalWorker.getWorkerAddr();
-        WorkerWage = animalWorker.getWorkerWage();
-        WorkerStatus = animalWorker.getWorkerStatus();
-        WorkerNote = animalWorker.getWorkerNote();
+        workerId = animalWorker.getWorkerId();
+        workerName = animalWorker.getWorkerName();
+        workerTel = animalWorker.getWorkerTel();
+        workerBirth = animalWorker.getWorkerBirth();
+        workerAddr = animalWorker.getWorkerAddr();
+        workerWage = animalWorker.getWorkerWage();
+        workerStatus = animalWorker.getWorkerStatus();
+        workerNote = animalWorker.getWorkerNote();
         this.animalWorker = animalWorker;
     }
     public String getAge(){
     Date today=new Date();
-    int age=today.getYear()-WorkerBirth.getYear();
-    Date birthday=new Date(today.getYear(),WorkerBirth.getMonth(),WorkerBirth.getDay());
+    int age=today.getYear()-workerBirth.getYear();
+    Date birthday=new Date(today.getYear(),workerBirth.getMonth(),workerBirth.getDay());
     if(birthday.compareTo(today)>=0){
         age--;
     }

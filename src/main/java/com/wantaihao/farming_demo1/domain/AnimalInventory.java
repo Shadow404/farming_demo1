@@ -13,29 +13,29 @@ import java.util.Date;
 public class AnimalInventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int AnimalBornLogId;//记录id
+    private int animalBornLogId;//记录id
     @Column(nullable = false)
-    private String AnimalTypeName;//类型名称
+    private String animalTypeName;//类型名称
     @Column(nullable = true)
-    private int AnimalBornId;//动物id（自生产）
+    private int animalBornId;//动物id（自生产）
     @Column
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date AnimalOutDate;//预计出库日期(自生产)
+    private Date animalOutDate;//预计出库日期(自生产)
     @Column(nullable = false)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date AnimalInDate;//生产日期or引进日期
+    private Date animalInDate;//生产日期or引进日期
     @Column(nullable = false)
-    private int AnimalBornCount;//生产个数（自生产）or引进个数
+    private int animalBornCount;//生产个数（自生产）or引进个数
     @Column(columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP ")
-    private Timestamp AnimalInLogDate;//记录日期
+    private Timestamp animalInLogDate;//记录日期
     @Column
-    private int AnimalBornNum;//生产次数（自生产）
+    private int animalBornNum;//生产次数（自生产）
     @Column(nullable = false,columnDefinition = "int default 1")//状态
-    private int AnimalInStatus;
+    private int animalInStatus;
     @Column
-    private String AnimalNote;//疫苗记录
+    private String animalNote;//疫苗记录
     @Column(nullable = false)
-    private String AnimalFrom;//来源
+    private String animalFrom;//来源
     @Column(nullable = false)
-    private int AnimalLastCount;//剩余个数
+    private int animalLastCount;//剩余个数
 }

@@ -17,17 +17,17 @@ import java.util.Date;
 public class AnimalType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int AnimalTypeId;
+    private int animalTypeId;
     @Column(nullable = false)
-    private String AnimalTypeName;
+    private String animalTypeName;
     @Column(nullable = false)
     private String animalTypeFrom;
     @Column(updatable = false,nullable = false,columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp AnimalTypeCreate;
+    private Timestamp animalTypeCreate;
     @Column(nullable = false,columnDefinition = "timestamp  DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ")
-    private Timestamp AnimalTypeUpdate;
+    private Timestamp animalTypeUpdate;
     @Column(nullable = false,columnDefinition = "int default 1")
-    private int AnimalTypeStatus;
+    private int animalTypeStatus;
     public AnimalType(){
 
 
