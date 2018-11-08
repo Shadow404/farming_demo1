@@ -55,8 +55,8 @@ public class AnimalInventoryController {
         return message;
     }
     @RequestMapping("editInventory")
-    public String editInventory(ModelMap map,@RequestParam int animal_log_id){
-        AnimalInventory animalInventory=animalInventoryService.findOne(animal_log_id);
+    public String editInventory(ModelMap map,@RequestParam int animalLogId){
+        AnimalInventory animalInventory=animalInventoryService.findOne(animalLogId);
         map.addAttribute("animalInventory",animalInventory);
         return "editInventory.html";
     }
