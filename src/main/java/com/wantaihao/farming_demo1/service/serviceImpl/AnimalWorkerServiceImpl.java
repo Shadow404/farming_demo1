@@ -54,4 +54,28 @@ public class AnimalWorkerServiceImpl implements AnimalWorkerService {
         }
         return map;
     }
+
+    @Override
+    public AnimalWorker findWorker(Integer workerId) {
+        AnimalWorker animalWorker=animalWorkerRepository.getOne(workerId);
+
+        return animalWorker;
+    }
+
+    @Override
+    public String editWorker(AnimalWorker animalWorker) {
+        String workerName=animalWorker.getWorkerName();
+        String workerTel=animalWorker.getWorkerTel();
+        String workerAddr= animalWorker.getWorkerAddr();
+        BigDecimal workerWage=animalWorker.getWorkerWage();
+        Date workerBirth=animalWorker.getWorkerBirth();
+        String workerNote=animalWorker.getWorkerNote();
+        Integer workerId=animalWorker.getWorkerId();
+        int result=animalWorkerRepository.editWorker(workerName,workerTel,workerAddr,workerWage,workerBirth,workerNote,workerId);
+        String message="修改饲养员失败！";
+        if(result>0){
+            message="修改饲养员成功！";
+        }
+        return message;
+    }
 }

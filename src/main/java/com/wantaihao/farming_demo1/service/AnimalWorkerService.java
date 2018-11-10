@@ -13,4 +13,8 @@ public interface AnimalWorkerService {
     String addWorker(AnimalWorker animalWorker);
     /*离职饲养员*/
     Map<String, Object> delWorker(Integer workerId);
+    /*查询饲养员*/
+    AnimalWorker findWorker(Integer workerId);
+    /*修改饲养员*/
+    String editWorker(AnimalWorker animalWorker);
 }

@@ -42,8 +42,21 @@ public class AnimalWorkerController {
         Map<String,Object> map=animalWorkerService.delWorker(workerId);
         return map;
     }
+
     @RequestMapping("workerOff")
     public String workerOff(){
         return "workerOff.html";
+    }
+    @RequestMapping("editWorker")
+    public String editWorker(@RequestParam Integer workerId,ModelMap map){
+        AnimalWorker worker=animalWorkerService.findWorker(workerId);
+        map.addAttribute("worker",worker);
+        return "editWorker.html";
+    }
+    @RequestMapping("doEditWorker")
+    @ResponseBody
+    public String doEditWorker(AnimalWorker animalWorker){
+        String message=animalWorkerService.editWorker(animalWorker);
+        return message;
     }
 }

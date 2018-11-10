@@ -3,6 +3,9 @@ package com.wantaihao.farming_demo1.vo;
 import com.wantaihao.farming_demo1.domain.AnimalWorker;
 import lombok.Data;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 @Data
@@ -29,12 +32,12 @@ public class AnimalWorkerVO {
         this.animalWorker = animalWorker;
     }
     public String getAge(){
-    Date today=new Date();
-    int age=today.getYear()-workerBirth.getYear();
-    Date birthday=new Date(today.getYear(),workerBirth.getMonth(),workerBirth.getDay());
-    if(birthday.compareTo(today)>=0){
-        age--;
-    }
-    return age+"岁";
-    }
+        Date today=new  Date();
+        int age=today.getYear()-workerBirth.getYear();
+        Date birthday= new Date(today.getYear(),workerBirth.getMonth(),workerBirth.getDate());
+        if(birthday.compareTo(today)>=0){
+            age--;
+        }
+        return age+"岁";
+        }
 }

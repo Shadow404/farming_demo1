@@ -53,7 +53,7 @@
 
                 <td class="f-14 td-manage" th:if="${worker.getWorkerStatus()} eq 1">
                     <a style="text-decoration:none" href="javascript:;" th:onclick="'javascript:worker_offWork(\'饲养员休假\',\'/workerOff?workerId='+${worker.getWorkerId()}+'\')'"  title="休假"><i class="Hui-iconfont">&#xe6df;</i></a>
-
+                    <a style="text-decoration:none" href="javascript:;" th:onclick="'javascript:worker_edit(\'饲养员编辑\',\'/editWorker?workerId='+${worker.getWorkerId()}+'\')'"  title="编辑"><i class="Hui-iconfont">&#xe647;</i></a>
                     <a style="text-decoration:none" class="ml-5" th:onclick="'javascript:worker_del('+this+','+${worker.getWorkerId()}+');'"  href="javascript:" title="离职"><i class="Hui-iconfont">&#xe6e2;</i></a>
                 </td>
                 <td class="f-14 td-manage" th:if="${worker.getWorkerStatus()} eq -1"></td>
@@ -131,7 +131,7 @@
             }
         });
     }
-    function provider_edit(title,url,w,h){
+    function worker_edit(title,url,w,h){
         layer.open({
             type: 2,
             title: title,
