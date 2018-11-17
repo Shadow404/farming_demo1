@@ -78,4 +78,40 @@ public class AnimalWorkerServiceImpl implements AnimalWorkerService {
         }
         return message;
     }
+
+    @Override
+    public String offWorker(String workerRestNote, Integer workerId) {
+        String message="休假失败！";
+        int result=animalWorkerRepository.offWorker(workerRestNote,workerId);
+        if(result>0){
+            message="休假成功！";
+        }
+        return message;
+    }
+
+    @Override
+    public Map reWorker(Integer workerId) {
+        Map<String,Object> map=new HashMap<>();
+        int result=animalWorkerRepository.reWorker(workerId);
+        if(result>0){
+            map.put("message","复职成功！");
+        }
+        else {
+            map.put("message","复职成功！");
+        }
+        return map;
+    }
+
+    @Override
+    public Map noRestWorker(Integer workerId) {
+        Map<String,Object> map=new HashMap<>();
+        int result=animalWorkerRepository.noRestWorker(workerId);
+        if(result>0){
+            map.put("message","休假结束成功！");
+        }
+        else {
+            map.put("message","休假结束成功！");
+        }
+        return map;
+    }
 }

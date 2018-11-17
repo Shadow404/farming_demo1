@@ -17,4 +17,10 @@ public interface AnimalWorkerService {
     AnimalWorker findWorker(Integer workerId);
     /*修改饲养员*/
     String editWorker(AnimalWorker animalWorker);
+    /*饲养员假期记录*/
+    String offWorker(String workerRestNote, Integer workerId);
+    /*饲养员复职*/
+    Map reWorker(Integer workerId);
+    /*饲养员结束休假*/
+    Map noRestWorker(Integer workerId);
 }

@@ -30,9 +30,9 @@
 <body>
 <div class="page-container">
 
-    <form action="" method="post" class="form form-horizontal" >
+    <form action="doWorkerOff" method="post" class="form form-horizontal" >
 
-
+    <input name="workerId" th:value="${workerId}" hidden="hidden">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">休假起始日期：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -57,7 +57,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-2">请假记录记录：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <textarea name="WorkerNote" cols="100" rows="400" id="AnimalBornNote"   class="textarea"  placeholder="" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
+                <textarea name="workerRestNote" cols="100" id="offNote" rows="400"    class="textarea"  placeholder="" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" ></textarea>
 
             </div>
         </div>
@@ -89,16 +89,38 @@
 <script type="text/javascript" src="lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript" th:inline="none">
     $(function () {
-        $("#phone").change(function () {
-            var phone=$("#phone").val();
-            if(!/^1(3|4|5|7|8)\d{9}$/.test(phone)) {
-                alert("请输入正确的电话号码！");
-                $("#phone").val('');
-                return false;
-            }
-        });
+        var startDate=$("#startOff").val();
+        var endDate=$("#endOff").val();;
+        var offReason=$("#offReason").val().trim();
+        $("#startOff").focus(
+            function () {
+                startDate=$("#startOff").val();
+                if(startDate!=null&&endDate!=null&&offReason!=""){
+                    $("#offNote").val(startDate+"---"+endDate+"请假理由 ："+offReason);
 
-    })
+                }
+            }
+        );
+        $("#endOff").focus(
+            function () {
+                endDate=$("#endOff").val();
+                if(startDate!=null&&endDate!=null&&offReason!=""){
+                    $("#offNote").val(startDate+"---"+endDate+"请假理由 ："+offReason);
+
+                }
+            }
+        );
+        $("#offReason").change(
+            function () {
+                offReason=$("#offReason").val().trim();
+                if(startDate!=null&&endDate!=null&&offReason!=""){
+                    $("#offNote").val(startDate+"---"+endDate+"请假理由 ："+offReason);
+
+                }
+            }
+        );
+
+    });
 </script>
 </body>
 </html>

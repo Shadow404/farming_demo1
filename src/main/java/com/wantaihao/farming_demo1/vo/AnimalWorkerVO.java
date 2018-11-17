@@ -19,7 +19,7 @@ public class AnimalWorkerVO {
     private int workerStatus;//状态 1 在职 2休假 -1离职
     private String workerNote;//备注
     private AnimalWorker animalWorker;
-
+    private String workerRestNote;
     public AnimalWorkerVO(AnimalWorker animalWorker) {
         workerId = animalWorker.getWorkerId();
         workerName = animalWorker.getWorkerName();
@@ -30,6 +30,7 @@ public class AnimalWorkerVO {
         workerStatus = animalWorker.getWorkerStatus();
         workerNote = animalWorker.getWorkerNote();
         this.animalWorker = animalWorker;
+        workerRestNote=animalWorker.getWorkerRestNote();
     }
     public String getAge(){
         Date today=new  Date();

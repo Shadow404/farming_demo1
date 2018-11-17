@@ -27,8 +27,11 @@ public class AnimalWorker {
     @Column(nullable = false,scale = 1,precision = 10)
     private BigDecimal workerWage;//工资
     @Column(nullable = false,columnDefinition = "int default 1")
-    private int workerStatus;//状态 1 在职 2休假 -1离职
+    private int workerStatus;//状态 1 在职 0休假 -1离职
     @Column
     private String workerNote;//备注
+    /*休假记录*/
+    @Column
+    private String workerRestNote;
 
 }

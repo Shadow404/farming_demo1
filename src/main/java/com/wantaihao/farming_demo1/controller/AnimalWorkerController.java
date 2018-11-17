@@ -37,6 +37,7 @@ public class AnimalWorkerController {
         String message=animalWorkerService.addWorker(animalWorker);
         return message;
     }
+    @ResponseBody
     @RequestMapping("delWorker")
     public Map<String,Object> delWorker(@RequestParam Integer workerId){
         Map<String,Object> map=animalWorkerService.delWorker(workerId);
@@ -44,7 +45,8 @@ public class AnimalWorkerController {
     }
 
     @RequestMapping("workerOff")
-    public String workerOff(){
+    public String workerOff(@RequestParam Integer workerId,ModelMap map){
+        map.addAttribute("workerId",workerId);
         return "workerOff.html";
     }
     @RequestMapping("editWorker")
@@ -58,5 +60,24 @@ public class AnimalWorkerController {
     public String doEditWorker(AnimalWorker animalWorker){
         String message=animalWorkerService.editWorker(animalWorker);
         return message;
+    }
+    @RequestMapping("doWorkerOff")
+    @ResponseBody
+    public String doWorkerOff(@RequestParam String workerRestNote,@RequestParam Integer workerId){
+        log.info("{} restnotre {}",workerRestNote,workerId);
+        String message=animalWorkerService.offWorker(workerRestNote,workerId);
+        return message;
+    }
+    @ResponseBody
+    @RequestMapping("reWorker")
+    public Map<String,Object> reWorker(@RequestParam Integer workerId){
+        Map map=animalWorkerService.reWorker(workerId);
+        return map;
+    }
+    @ResponseBody
+    @RequestMapping("noRestWorker")
+    public Map<String,Object> noRestWorker(@RequestParam Integer workerId){
+        Map map=animalWorkerService.noRestWorker(workerId);
+        return map;
     }
 }

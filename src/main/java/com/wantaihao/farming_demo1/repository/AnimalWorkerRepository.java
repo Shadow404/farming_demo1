@@ -31,4 +31,19 @@ public interface AnimalWorkerRepository extends JpaRepository<AnimalWorker,Integ
     @Transactional
     @Query(value = "UPDATE animal_worker SET worker_name=?1,worker_tel=?2,worker_addr=?3,worker_wage=?4,worker_birth=?5,worker_note=?6 where worker_id=?7",nativeQuery = true)
     int editWorker(String workerName, String workerTel, String workerAddr, BigDecimal workerWage, Date workerBirth, String workerNote,Integer workerId);
+    /*休假记录*/
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true,value = "UPDATE animal_worker  SET animal_worker.worker_rest_note= CONCAT(IFNULL(worker_rest_note,''),'\n',?1),worker_status=0 WHERE animal_worker.worker_id=?2 ")
+    int offWorker(String workerRestNote, Integer workerId);
+    /*复职*/
+    @Transactional
+    @Modifying
+    @Query(nativeQuery = true,value = "UPDATE animal_worker SET worker_status=1 WHERE worker_id=?1")
+    int reWorker(Integer workerId);
+    /*结束休假*/
+    @Transactional
+    @Modifying
+    @Query(nativeQuery = true,value = "UPDATE animal_worker SET worker_status=1 WHERE worker_id=?1")
+    int noRestWorker(Integer workerId);
 }
