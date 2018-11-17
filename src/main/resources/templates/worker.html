@@ -63,7 +63,7 @@
                     <a style="text-decoration:none" href="javascript:;" th:onclick="'javascript:worker_offRest('+this+','+${worker.getWorkerId()}+')'"  title="结束休假"><i class="Hui-iconfont">&#xe6f7;</i></a>
 
                 </td>
-                <td><a th:onclick="'javascript:restInfo(\'休假记录\',\''+${worker.getWorkerRestNote()}+'\')'">查看休假记录</a></td>
+                <td><a th:onclick="'javascript:restInfo(\'休假记录\',\'/workerRestNote?workerId='+${worker.getWorkerId()}+'\')'">查看休假记录</a></td>
 
 
             </tr>

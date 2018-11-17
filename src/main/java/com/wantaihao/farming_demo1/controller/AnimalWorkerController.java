@@ -80,4 +80,11 @@ public class AnimalWorkerController {
         Map map=animalWorkerService.noRestWorker(workerId);
         return map;
     }
+    @RequestMapping("workerRestNote")
+    @ResponseBody
+    public String workerRest(@RequestParam Integer workerId,ModelMap map){
+        String note=animalWorkerService.findNoteById(workerId);
+        map.addAttribute("restNote",note);
+        return "workerRestNote.html";
+    }
 }

@@ -114,4 +114,10 @@ public class AnimalWorkerServiceImpl implements AnimalWorkerService {
         }
         return map;
     }
+
+    @Override
+    public String findNoteById(Integer workerId) {
+        String restNote=animalWorkerRepository.findNoteById(workerId);
+        return restNote;
+    }
 }

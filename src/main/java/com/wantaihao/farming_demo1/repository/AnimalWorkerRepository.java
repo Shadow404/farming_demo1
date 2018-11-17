@@ -46,4 +46,7 @@ public interface AnimalWorkerRepository extends JpaRepository<AnimalWorker,Integ
     @Modifying
     @Query(nativeQuery = true,value = "UPDATE animal_worker SET worker_status=1 WHERE worker_id=?1")
     int noRestWorker(Integer workerId);
+    /*查询休假记录*/
+    @Query(nativeQuery = true,value = "select worker_rest_note from animal_worker where worker_id=?1")
+    String findNoteById(Integer workerId);
 }

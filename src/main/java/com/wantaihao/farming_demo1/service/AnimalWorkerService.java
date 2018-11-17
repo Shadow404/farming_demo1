@@ -23,4 +23,6 @@ public interface AnimalWorkerService {
     Map reWorker(Integer workerId);
     /*饲养员结束休假*/
     Map noRestWorker(Integer workerId);
+    /*查询休假记录*/
+    String findNoteById(Integer workerId);
 }
