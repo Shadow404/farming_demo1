@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Slf4j
-@Controller
+@Controller("/api")
 public class AnimalWorkerController {
     @Autowired
     private AnimalWorkerService animalWorkerService;
@@ -81,10 +82,13 @@ public class AnimalWorkerController {
         return map;
     }
     @RequestMapping("workerRestNote")
-    @ResponseBody
     public String workerRest(@RequestParam Integer workerId,ModelMap map){
-        String note=animalWorkerService.findNoteById(workerId);
-        map.addAttribute("restNote",note);
+        Map<String,Object> noteMap=animalWorkerService.findNoteById(workerId);
+        Set<String> keys=noteMap.keySet();
+        for (String key: keys ) {
+            map.addAttribute(key,noteMap.get(key));
+        }
+
         return "workerRestNote.html";
     }
 }

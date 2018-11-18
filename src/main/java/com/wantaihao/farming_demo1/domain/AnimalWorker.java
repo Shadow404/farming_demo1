@@ -31,7 +31,7 @@ public class AnimalWorker {
     @Column
     private String workerNote;//备注
     /*休假记录*/
-    @Column
+    @Column(columnDefinition = "text")
     private String workerRestNote;
 
 }

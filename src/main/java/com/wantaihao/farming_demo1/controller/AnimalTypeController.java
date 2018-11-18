@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
 @Slf4j
-@Controller
+@Controller("/api")
 public class AnimalTypeController {
     @Autowired
     private AnimalTypeService typeService;

@@ -4,12 +4,13 @@ import com.wantaihao.farming_demo1.domain.AnimalWorker;
 import com.wantaihao.farming_demo1.repository.AnimalWorkerRepository;
 import com.wantaihao.farming_demo1.service.AnimalWorkerService;
 import com.wantaihao.farming_demo1.vo.AnimalWorkerVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.*;
-
+@Slf4j
 @Service
 public class AnimalWorkerServiceImpl implements AnimalWorkerService {
     @Autowired
@@ -82,6 +83,7 @@ public class AnimalWorkerServiceImpl implements AnimalWorkerService {
     @Override
     public String offWorker(String workerRestNote, Integer workerId) {
         String message="休假失败！";
+        workerRestNote="\n \t"+workerRestNote;
         int result=animalWorkerRepository.offWorker(workerRestNote,workerId);
         if(result>0){
             message="休假成功！";
@@ -116,8 +118,21 @@ public class AnimalWorkerServiceImpl implements AnimalWorkerService {
     }
 
     @Override
-    public String findNoteById(Integer workerId) {
+    public Map<String,Object> findNoteById(Integer workerId) {
         String restNote=animalWorkerRepository.findNoteById(workerId);
-        return restNote;
+        Map<String,Object> map=new HashMap<>();
+        if(restNote==null||restNote.trim()==""){
+            map.put("message","请假记录为空！");
+        }
+        else {
+            String[] notes=restNote.split(";");
+            List<String> noteList=new ArrayList();
+            for (String note:notes) {
+                noteList.add(note);
+                log.info(note);
+            }
+            map.put("noteList",noteList);
+        }
+        return map;
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@Controller("/api")
 public class AnimalCustomController {
     @Autowired
     private AnimalCustomService animalCustomService;

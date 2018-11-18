@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Controller
+@Controller("/api")
 public class AnimalBornController {
     @Autowired
     private AnimalBornService animalBornService;
