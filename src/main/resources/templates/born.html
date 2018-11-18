@@ -152,7 +152,7 @@
     function born_del(obj,id){
         layer.confirm('确认删除吗？',function(index){
             $.post(
-                '/delBorn',
+                'api/delBorn',
                 {"animalBornId":id},
                 function(data){
                     alert(data.message);
@@ -174,7 +174,7 @@
     function born_comp(obj,id){
         layer.confirm('确认要完成这次生产吗？',function(index){
             $.post(
-                '/compBorn',
+                'api/compBorn',
                 {"animalBornId":id},
                 function(data){
                      layer.msg(data.message,{icon:1,time:2000});
@@ -194,7 +194,7 @@
     function born_unlock(obj,id){
         layer.confirm('确认要解锁吗？',function(index){
             $.post(
-                '/unlockBorn',
+                'api/unlockBorn',
                 {"animalBornId":id},
                 function (data) {
                         alert(data.message);

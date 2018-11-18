@@ -112,7 +112,7 @@
     function worker_del(obj,id){
         layer.confirm('确认离职吗？',function(index){
             $.post(
-                '/delWorker',
+                'api/delWorker',
                 {"workerId":id},
                 function(data){
                     alert(data.message);
@@ -141,7 +141,7 @@
     function worker_reWorker(obj,id){
         layer.confirm('确认复职吗？',function(index){
             $.post(
-                '/reWorker',
+                'api/reWorker',
                 {"workerId":id},
                 function(data){
                     alert(data.message);
@@ -159,7 +159,7 @@
     function worker_offRest(obj,id){
         layer.confirm('确认结束休假吗？',function(index){
             $.post(
-                '/noRestWorker',
+                'api/noRestWorker',
                 {"workerId":id},
                 function(data){
                     alert(data.message);

@@ -35,7 +35,7 @@
             <p th:text="${message}"></p>
         </div>
     </div>
-    <form  method="post" class="form form-horizontal" id="form-article-add" action="/doEditBorn">
+    <form  method="post" class="form form-horizontal" id="form-article-add" action="api/doEditBorn">
 
         <input type="number" hidden th:value="${animalBorn.getAnimalBornId()}" name="animalBornId">
         <div class="row cl">
@@ -146,7 +146,7 @@
     $("#editBorn").click(
         function (){
             $.post({
-                url:"/doEditBorn",
+                url:"api/doEditBorn",
                 contentType:"application/json;charset=utf-8",
                 method:"post",
 

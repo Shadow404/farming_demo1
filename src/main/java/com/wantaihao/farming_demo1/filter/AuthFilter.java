@@ -26,10 +26,10 @@ public class AuthFilter implements Filter {
         HttpSession session=request1.getSession();
         User user= (User) session.getAttribute("user");
         if(user==null) {
-            chain.doFilter(request, response);
+
             response1.sendRedirect("/");
         }
-
+        chain.doFilter(request, response);
     }
 
     @Override

@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 import java.util.Map;
 
-@Controller("/api")
+@Controller
+
 public class AnimalCustomController {
     @Autowired
     private AnimalCustomService animalCustomService;
@@ -50,7 +51,7 @@ public class AnimalCustomController {
         String message=animalCustomService.addBuyer(animalCustom);
         return message;
     }
-    @RequestMapping("delCustom")
+    @RequestMapping("api/delCustom")
     @ResponseBody
     public Map<String,Object>delCustom(@RequestParam Integer customId){
         Map map=animalCustomService.delCustom(customId);
@@ -62,7 +63,7 @@ public class AnimalCustomController {
         map.addAttribute("custom",custom);
         return "editProvider.html";
     }
-    @RequestMapping("doEditProvider")
+    @RequestMapping("api/doEditProvider")
     @ResponseBody
     public String doEditCustom(AnimalCustom animalCustom,@RequestParam String originName){
         String message=animalCustomService.editProvider(animalCustom,originName);
@@ -74,7 +75,7 @@ public class AnimalCustomController {
         map.addAttribute("custom",custom);
         return "editBuyer.html";
     }
-    @RequestMapping("doEditBuyer")
+    @RequestMapping("api/doEditBuyer")
     @ResponseBody
     public String doEditBuyer(AnimalCustom animalCustom){
         String message=animalCustomService.editBuyer(animalCustom);

@@ -18,7 +18,8 @@ import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Controller("/api")
+@Controller
+
 public class AnimalInventoryController {
     @Autowired
     private AnimalInventoryService animalInventoryService;
@@ -49,7 +50,7 @@ public class AnimalInventoryController {
         return "addInventory.html";
     }
     @ResponseBody
-    @RequestMapping("doAddInventory")
+    @RequestMapping("api/doAddInventory")
     public String doAddInventory(AnimalInventory animalInventory){
         String message=animalInventoryService.addInventory(animalInventory);
         return message;
@@ -61,13 +62,13 @@ public class AnimalInventoryController {
         return "editInventory.html";
     }
     @ResponseBody
-    @RequestMapping("doEditInventory")
+    @RequestMapping("api/doEditInventory")
     public String doEditInventory(AnimalInventory animalInventory){
 
         String message=animalInventoryService.editInventory(animalInventory);
         return message;
     }
-    @RequestMapping("delInventory")
+    @RequestMapping("api/delInventory")
     @ResponseBody
     Map<String,Object> delInventory(@RequestParam int animalBornLogId){
         Map map=null;
@@ -80,7 +81,7 @@ public class AnimalInventoryController {
         map.addAttribute("innt",animalInventory);
         return "addDeliver.html";
     }
-    @RequestMapping("doAddDeliver")
+    @RequestMapping("api/doAddDeliver")
     @ResponseBody
     public String doAddDeliver(AnimalDeliver animalDeliver){
 

@@ -19,7 +19,8 @@ import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
 @Slf4j
-@Controller("/api")
+@Controller
+
 public class AnimalTypeController {
     @Autowired
     private AnimalTypeService typeService;
@@ -30,21 +31,21 @@ public class AnimalTypeController {
          map.addAttribute("typeList",list);
          return "type.html";
     }
-    @GetMapping("/list")
+    @GetMapping("/api/list")
     @ResponseBody
     public List<AnimalType> lists(@RequestParam(defaultValue = "0") int page){
 
         Pageable pageable=new PageRequest(page,4);
         return typeService.findAll(pageable).getContent();
     }
-    @RequestMapping("/addType")
+    @RequestMapping("addType")
     public String addType(ModelMap map){
         List<String> providerNames=typeService.findProviders();
         map.addAttribute("providers",providerNames);
         return "addType.html";
     }
 
-    @RequestMapping("/doAddType")
+    @RequestMapping("/api/doAddType")
     @ResponseBody
     public String doAddType( AnimalType animalType){
         log.info("typename {}",animalType.getAnimalTypeName());
@@ -53,7 +54,7 @@ public class AnimalTypeController {
 
         return message;
     }
-    @RequestMapping("/delType")
+    @RequestMapping("/api/delType")
     @ResponseBody
     public Map<String,String> delType(@RequestParam int animalTypeId){
         String message=typeService.delType(animalTypeId);
@@ -70,13 +71,13 @@ public class AnimalTypeController {
         map.addAttribute("animalTypeFrom",map1.get("animal_type_from"));
         return "editType.html";
     }
-    @RequestMapping("doEditType")
+    @RequestMapping("/api/doEditType")
     @ResponseBody
     public String doEditType(AnimalType animalType){
         String message=typeService.editType(animalType);
         return message;
     }
-    @RequestMapping("/changeTypeStatus")
+    @RequestMapping("/api/changeTypeStatus")
     @ResponseBody
     public Map<String,Object> changeTypeStatus(@RequestParam int animalTypeId,@RequestParam int status){
         log.info("id {}, status {}",animalTypeId,status);

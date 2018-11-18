@@ -1,24 +1,19 @@
 package com.wantaihao.farming_demo1.controller;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.wantaihao.farming_demo1.annoation.CacheLock;
-import com.wantaihao.farming_demo1.annoation.CacheParam;
+
 import com.wantaihao.farming_demo1.domain.AnimalBorn;
-import com.wantaihao.farming_demo1.domain.AnimalInventory;
 import com.wantaihao.farming_demo1.service.AnimalBornService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Controller("/api")
+@Controller
 public class AnimalBornController {
     @Autowired
     private AnimalBornService animalBornService;
@@ -36,7 +31,7 @@ public class AnimalBornController {
         map.addAttribute("animalBornItem",animalBornItem);
         return "bornItem.html";
     }
-    @RequestMapping("/addBorn")
+    @RequestMapping("addBorn")
     public String addBorn(ModelMap map){
         List<String> typeList=null;
         try{typeList=animalBornService.findAnimalType();}
@@ -46,7 +41,7 @@ public class AnimalBornController {
         map.addAttribute("typeList",typeList);
         return "addBorn.html";
     }
-    @RequestMapping("/doAddBorn")
+    @RequestMapping("api/doAddBorn")
     @ResponseBody
     public String doAddBorn( AnimalBorn animalBorn){
         String message=animalBornService.addBorn(animalBorn);
@@ -60,28 +55,28 @@ public class AnimalBornController {
         map.addAttribute("message",map1.get("message"));
         return "editBorn.html";
     }
-    @RequestMapping("/doEditBorn")
+    @RequestMapping("api/doEditBorn")
     @ResponseBody
 
     public String doEditBorn( AnimalBorn animalBorn){
         String message=animalBornService.doEditBorn(animalBorn);
         return message;
     }
-    @RequestMapping("/compBorn")
+    @RequestMapping("api/compBorn")
     @ResponseBody
     public Map<String,Object> compBorn(@RequestParam int animalBornId){
         Map map =animalBornService.comp(animalBornId);
         return  map;
     }
     @ResponseBody
-    @RequestMapping("bornChart")
+    @RequestMapping("api/bornChart")
     public Map<String,Object> bornChart(@RequestParam int id){
         log.info("{} id =====",id);
         Map map=animalBornService.chart(id);
 
         return map;
     }
-    @RequestMapping("/unlockBorn")
+    @RequestMapping("api/unlockBorn")
     @ResponseBody
     public Map<String,Object> unlockBorn(@RequestParam int animalBornId){
         log.info("{}=======animalId",animalBornId);
@@ -96,14 +91,14 @@ public class AnimalBornController {
         return "newBorn.html";
     }
     @ResponseBody
-    @RequestMapping("doNewBorn")
+    @RequestMapping("api/doNewBorn")
     public String doNewBorn(AnimalBorn animalBorn){
 
         String message=animalBornService.newBorn(animalBorn);
         return message;
     }
     @ResponseBody
-    @RequestMapping("delBorn")
+    @RequestMapping("api/delBorn")
     public Map<String,Object> delBorn(@RequestParam int animalBornId){
         String message=animalBornService.delBorn(animalBornId);
         Map<String,Object> map=new HashMap<>();

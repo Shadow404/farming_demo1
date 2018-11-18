@@ -35,7 +35,7 @@
             <p th:text="${message}"></p>
         </div>
     </div>
-    <form  method="post" class="form form-horizontal" id="form-article-add" action="/doEditInventory">
+    <form  method="post" class="form form-horizontal" id="form-article-add" action="api/doEditInventory">
 
         <input type="number" hidden th:value="${animalInventory.getAnimalBornLogId()}" name="AnimalBornLogId">
         <div class="row cl">

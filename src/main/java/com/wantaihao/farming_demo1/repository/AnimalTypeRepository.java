@@ -35,7 +35,7 @@ public interface AnimalTypeRepository extends JpaRepository<AnimalType,Integer> 
      @Transactional
      @Query(value = "UPDATE animal_type SET animal_type_status=?2 WHERE animal_type_id=?1",nativeQuery = true)
      int changeTypeStatus(int animalTypeId,int aniamlTypeStatus);
-     @Query(value = "SELECT custom_name FROM animal_custom WHERE custom_type=1",nativeQuery = true)
+     @Query(value = "SELECT custom_name FROM animal_custom WHERE custom_type=1 and custom_status=1",nativeQuery = true)
      List<String> findProvider();
      @Modifying
      @Transactional

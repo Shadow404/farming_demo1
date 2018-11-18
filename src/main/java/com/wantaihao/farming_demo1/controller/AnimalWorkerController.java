@@ -16,7 +16,8 @@ import java.util.Map;
 import java.util.Set;
 
 @Slf4j
-@Controller("/api")
+@Controller
+
 public class AnimalWorkerController {
     @Autowired
     private AnimalWorkerService animalWorkerService;
@@ -31,7 +32,7 @@ public class AnimalWorkerController {
     public String addWorker(){
         return "addWorker.html";
     }
-    @RequestMapping("doAddWorker")
+    @RequestMapping("api/doAddWorker")
     @ResponseBody
     public String doAddWorker(AnimalWorker animalWorker){
         log.info("{} worker",animalWorker);
@@ -39,7 +40,7 @@ public class AnimalWorkerController {
         return message;
     }
     @ResponseBody
-    @RequestMapping("delWorker")
+    @RequestMapping("api/delWorker")
     public Map<String,Object> delWorker(@RequestParam Integer workerId){
         Map<String,Object> map=animalWorkerService.delWorker(workerId);
         return map;
@@ -56,13 +57,13 @@ public class AnimalWorkerController {
         map.addAttribute("worker",worker);
         return "editWorker.html";
     }
-    @RequestMapping("doEditWorker")
+    @RequestMapping("api/doEditWorker")
     @ResponseBody
     public String doEditWorker(AnimalWorker animalWorker){
         String message=animalWorkerService.editWorker(animalWorker);
         return message;
     }
-    @RequestMapping("doWorkerOff")
+    @RequestMapping("api/doWorkerOff")
     @ResponseBody
     public String doWorkerOff(@RequestParam String workerRestNote,@RequestParam Integer workerId){
         log.info("{} restnotre {}",workerRestNote,workerId);
@@ -70,13 +71,13 @@ public class AnimalWorkerController {
         return message;
     }
     @ResponseBody
-    @RequestMapping("reWorker")
+    @RequestMapping("api/reWorker")
     public Map<String,Object> reWorker(@RequestParam Integer workerId){
         Map map=animalWorkerService.reWorker(workerId);
         return map;
     }
     @ResponseBody
-    @RequestMapping("noRestWorker")
+    @RequestMapping("api/noRestWorker")
     public Map<String,Object> noRestWorker(@RequestParam Integer workerId){
         Map map=animalWorkerService.noRestWorker(workerId);
         return map;

@@ -147,7 +147,7 @@
     function innt_del(obj,id){
         layer.confirm('确认删除吗？',function(index){
             $.post(
-                '/delInventory',
+                'api/delInventory',
                 {"animalBornLogId":id},
                 function(data){
                     alert(data.message);

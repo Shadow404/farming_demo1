@@ -30,7 +30,7 @@
 <body>
 <div class="page-container">
 
-    <form action="/doNewBorn" method="post" class="form form-horizontal" >
+    <form action="api/doNewBorn" method="post" class="form form-horizontal" >
 
         <input hidden="hidden" th:value="${animalBornId}" name="AnimalBornId">
         <div class="row cl">
@@ -85,7 +85,7 @@
     $("#addBorn").click(
         function (){
             $.post({
-                url:"/doNewBorn",
+                url:"api/doNewBorn",
                 contentType:"application/json;charset=utf-8",
                 method:"post",
 
